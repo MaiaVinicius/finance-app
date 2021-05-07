@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dev.Finance$</title>
+
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,300italic,regular,italic,600,700,700italic,900" rel="stylesheet">
+<link href="assets/float-button.css" rel="stylesheet">
+<link href="assets/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="modal-overlay" id="app-modal-add-transaction" >
+        <div class="modal">
+            <h2>Nova transação</h2>
+            
+            <div>
+                <input id="transaction-description" placeholder="Descrição" type="text"/>
+            </div>
+
+
+            <div>
+                <select id="transaction-account" >
+                    <option>Santander</option>
+                    <option>Itaú</option>
+                </select>
+            </div>
+
+
+            <div>
+                <input id="transaction-amount" placeholder="0,00" type="text"/>
+            </div>
+
+            <div>
+                <input id="transaction-date" placeholder="Data" type="date"/>
+            </div>
+
+
+
+            <button onclick="Modal.close()">Fechar</button>
+
+            <button onclick="Transactions.save()">Salvar</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="app-header">
+            <div class="app-logo-content">
+                <div class="app-logo">dev.finance 
+                    <span class="app-logo-dollar">$</span>    
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+
+    <div class="app-content">
+        <div class='app-dashboard-cards'>
+            <div class="app-card">
+                <h4 class="app-card-title">Entradas</h4>
+                <h2 class="app-card-value">+ R$ 250,00</h2>
+            </div>
+
+            <div class="app-card card-center">
+                <h4 class="app-card-title">Saídas</h4>
+                <h2 class="app-card-value">- R$ 250,00</h2>
+            </div>
+
+            <div class="app-card card-right app-card-total">
+                <h4 class="app-card-title app-card-title-total">Total</h4>
+                <h2 class="app-card-value">R$ 7.500,00</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="app-transactions">
+        <table class="app-transactions-table" style="width:100%" id="transaction-table">
+            <tr>
+              <th>Descrição</th>
+              <th>Conta</th>
+              <th>Valor</th>
+              <th>Data</th>
+            </tr>
+            <tr>
+              <td>Pix recebido</td>
+              <td>Santander</td>
+              <td class="transaction-value-positive">+ R$ 100,00</td>
+              <td>05/05/2021</td>
+            </tr>
+            <tr>
+                <td>Starbucks</td>
+                <td>Santander</td>
+                <td class="transaction-value-negative">- R$ 18,00</td>
+                <td>05/05/2021</td>
+              </tr>
+          </table>
+    </div>
+
+    <div class='float-button'>
+        <div class='float-button' onclick="Modal.open()">
+            +
+        </div>
+    </div>
+
+    <script>
+
+        const Modal = {
+            open: function(){
+                const modalElement = document.getElementById('app-modal-add-transaction');
+                modalElement.classList.add("active")
+
+            },
+            close: function(){
+                const modalElement = document.getElementById('app-modal-add-transaction');
+                modalElement.classList.remove("active")
+            }
+        };
+
+        const Transactions = {
+            save: function(){
+                const transactionsTable = document.getElementById("transaction-table");
+
+                
+            }
+        };
+
+
+    </script>
+
+</body>
+
+</html>
